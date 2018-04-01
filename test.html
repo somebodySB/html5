@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport" />
+    <link rel="stylesheet" href="./mySwiper.css" />
+    <link rel="stylesheet" href="./swiper/dist/css/swiper.min.css" />
+    <title>这是html网页</title>
+  </head>
+  <body style="background-color:rgb(200,200,200)">
+
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+    <h1>这是标题</h1></div>
+    <div class="swiper-slide">
+      <div class="vid-wrapper">
+        <video src="./test.mp4" style="vid-wrapper" id="myVideo"></video>
+      </div>
+      <button onclick="playOrPause()"></button>
+      <div>
+     </div>
+   </div>
+    <div class="swiper-slide">Slide 3</div>
+  </div>
+</div>
+
+    <script>
+    var isPlay = false;
+    function playOrPause(){
+
+      var video = document.getElementById("myVideo");
+      if(isPlay == false){
+        video.play();
+        video.hidden = undefined;
+      }else{
+        video.pause();
+        video.hidden = "hidden";
+      }
+      isPlay = !isPlay;
+    }
+    </script>
+    <!-- Swiper JS -->
+    <script src="./swiper/dist/js/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper('.swiper-container',{
+    direction : 'vertical',
+  });
+    </script>
+  </body>
+</html>
