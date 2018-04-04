@@ -37,7 +37,10 @@
       <div>
      </div>
    </div>
-    <div class="swiper-slide">Slide 3</div>
+    <div class="swiper-slide" id = "touch">Slide 3
+      <div style="width:50px;height:50px;background-color:gray;" id="touchDiv">
+      </div>
+    </div>
   </div>
 </div>
 
@@ -69,10 +72,19 @@
 
 
     }
+    var divWidth = 50;
+    var div = document.getElementById("touch");
+    var sTime = 0;
+    div.addEventListener("touchstart",function(){setTimeout(function () {
+      var touchDiv = document.getElementById("touchDiv");
+      divWidth+=30;
+      touchDiv.style.width = divWidth+"px";
+    }, 1000);});
+    function touchCheck(){
 
-    function trans2(){
-      var div = document.getElementById("transl");
+
     }
+
     </script>
     <!-- Swiper JS -->
     <script src="./swiper/dist/js/swiper.min.js"></script>
