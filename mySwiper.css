@@ -17,6 +17,53 @@
   padding: 0;
 }
 
+.trans{
+  position: absolute;
+  left: 0;
+  top: 0%;
+  width: 500%;
+  height: 200%;
+  /* background-image: url("wumaru.jpeg"); */
+  /* background-size: cover; */
+  transition: 0.6s;
+  transition-timing-function:ease-in-out;
+}
+
+#first{
+  position: relative;
+  left:0%;
+  top: 0%;
+  width: 20%;
+  height: 50%;
+  background-color: yellow;
+}
+
+#second{
+  position: relative;
+  left:20%;
+  top: 50%;
+  width: 20%;
+  height: 50%;
+  background-color: blue;
+}
+
+#third{
+  position: relative;
+  left:60%;
+  top: 0%;
+  width: 20%;
+  height: 50%;
+  background-color: red;
+}
+
+div.anim{
+  position: absolute;
+  left: 0%;
+  top:  0%;
+  width: 50%;
+  height: 50%;
+  background-color :blue;
+}
 html, body {
   position: relative;
   height: 100%;
@@ -40,7 +87,7 @@ body {
   text-align: center;
   font-size: 18px;
   background: #fff;
-
+  overflow:hidden;
 
 
   /* Center slide text vertically */

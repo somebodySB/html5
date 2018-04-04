@@ -13,11 +13,27 @@
   <div class="swiper-wrapper">
     <div class="swiper-slide">
     <h1>这是标题</h1></div>
-    <div class="swiper-slide">
-      <div class="vid-wrapper">
+    <div class="swiper-slide" style="">
+      <!-- <div class="vid-wrapper">
         <video src="./test.mp4" style="vid-wrapper" id="myVideo"></video>
+      </div> -->
+      <div class="trans" id="transl" >
+        <div id="first">
+          first page
+        </div>
+
+        <div id="second">
+          second page
+        </div>
+
+        <div id="third">
+          third pade
+        </div>
       </div>
-      <button onclick="playOrPause()"></button>
+      <button onclick="trans()" style="z-index:2;position:relative;">next</button>
+
+
+
       <div>
      </div>
    </div>
@@ -26,18 +42,36 @@
 </div>
 
     <script>
-    var isPlay = false;
-    function playOrPause(){
+    var pageNum = 1;
+    // function playOrPause(){
+    //
+    //   var video = document.getElementById("myVideo");
+    //   if(isPlay == false){
+    //     video.play();
+    //     video.hidden = undefined;
+    //   }else{
+    //     video.pause();
+    //     video.hidden = "hidden";
+    //   }
+    //   isPlay = !isPlay;
+    // }
 
-      var video = document.getElementById("myVideo");
-      if(isPlay == false){
-        video.play();
-        video.hidden = undefined;
-      }else{
-        video.pause();
-        video.hidden = "hidden";
-      }
-      isPlay = !isPlay;
+    function trans(){
+        var div = document.getElementById("transl");
+        if(pageNum==1){
+          div.style.left = "-100%";
+          div.style.top  = "-200%";
+          pageNum++;
+        }else{
+          div.style.left = "-300%";
+          div.style.top  = "-200%";
+        }
+
+
+    }
+
+    function trans2(){
+      var div = document.getElementById("transl");
     }
     </script>
     <!-- Swiper JS -->
