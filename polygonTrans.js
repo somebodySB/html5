@@ -4,10 +4,12 @@ var position = function(x,y){
 }
 
 var p1 = new position(0,0);
-var p2 = new position(102,105);
-var p3 = new position(202,135);
+var p2 = new position(12,35);
+var p3 = new position(23.8,45);
 
 var polygonPos = (function(){
+  var n = 1;
+  var l = 0;
   this.div = document.getElementById("transl");
   this.present = 0;
   this.last = null;
@@ -27,7 +29,7 @@ var polygonPos = (function(){
     }else{
       last = present;
       present++;
-      transDiv();
+      transDiv(n);
       if(isLast()){
         next == null;
       }else{
@@ -42,7 +44,7 @@ var polygonPos = (function(){
     }else{
       next = present;
       present--;
-      transDiv();
+      transDiv(l);
       if(isFirst()){
         last = null;
       }else{
@@ -51,20 +53,29 @@ var polygonPos = (function(){
     }
   }
 
-  this.transDiv = function(){
+  this.transDiv = function(isN){
     var div = document.getElementById("transl");
     var bgDiv = document.getElementById("bg");
-    div.style.width = "600%";
-    div.style.height = "200%";
-    var middleX = (posArray[present].left+posArray[last].left)/3;
-    var middleY = (posArray[present].top+posArray[last].top)/3;
-    div.style.left = "-" + middleX + "%";
-    div.style.top = "-" + middleY + "%";
+    bgDiv.style.transform = "translate(-51%,-55%)";
+    if(isN){
+
+      var middleX = (posArray[present].left+posArray[last].left)/2;
+      var middleY = (posArray[present].top+posArray[last].top)/2;
+
+    }else{
+      var middleX = (posArray[present].left+posArray[next].left)/2;
+      var middleY = (posArray[present].top+posArray[next].top)/2;
+    }
+    div.style.transformOrigin = "-" + middleX+ "% -"+middleY+"%";
+    div.style.transform = "scale(0.8)" + "translate3d(-" + middleX+ "%,-"+middleY+"%,0)";
+
     setTimeout(function () {
-      div.style.width = "850%";
-      div.style.height = "300%";
-      div.style.left = "-" + posArray[present].left + "%";
-      div.style.top = "-" + posArray[present].top + "%";
+      // bgDiv.style.transform = "scale(1)";
+      bgDiv.style.transform = "translate(0,0)";
+      div.style.transformOrigin = "-" + middleX+ "% -"+middleY+"%";
+      div.style.transform = "scale(1)"+"translate3d(-"+posArray[present].left+"%,-"+posArray[present].top+"%,0)";
+      // div.style.left = "-" + posArray[present].left + "%";
+      // div.style.top = "-" + posArray[present].top + "%";
     }, 450);
   }
 
