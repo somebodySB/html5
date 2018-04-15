@@ -28,38 +28,7 @@
   background-position: center;
 }
 
-@myFirst{
-  0% {
-    position: relative;
-    left: 0;
-    top: 0;
-    width: 850%;
-    height: 300%;
-  }
-  50% {
-    position: relative;
-    left: -51%;
-    top: -50%;
-    width: 600%;
-    height: 200%;
-  }
-  100% {
-    position: relative;
-    left: -102%;
-    top: -105%;
-    width: 850%;
-    height: 300%;
-  }
-}
 
-@test{
-  from{
-    background-color: red;
-  }
-  to{
-    background-color: gray;
-  }
-}
 .trans{
   position:relative;
   left: 0;
@@ -68,10 +37,10 @@
   height: 300%;
   background-size:cover;
   background-repeat:no-repeat;
-  /* -webkit-animation: test 5s; */
-
   transition: 0.45s;
   transition-timing-function:ease-in-out;
+  -webkit-backface-visibility:hidden;
+  opacity: 1;
 }
 
 img{
@@ -98,6 +67,7 @@ img{
     padding: 0;
     height: 100%;
     width: 100%;
+    perspective: 0;
 }
 
 .polygon{
