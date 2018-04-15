@@ -53,6 +53,7 @@ var polygonPos = (function(){
 
   this.transDiv = function(){
     var div = document.getElementById("transl");
+    var bgDiv = document.getElementById("bg");
     div.style.width = "600%";
     div.style.height = "200%";
     var middleX = (posArray[present].left+posArray[last].left)/3;
@@ -64,7 +65,7 @@ var polygonPos = (function(){
       div.style.height = "300%";
       div.style.left = "-" + posArray[present].left + "%";
       div.style.top = "-" + posArray[present].top + "%";
-    }, 600);
+    }, 450);
   }
 
   return {
