@@ -17,43 +17,74 @@
   padding: 0;
 }
 
-.trans{
+
+.parallax-bg {
   position: absolute;
   left: 0;
+  top: 0;
+  width: 100%;
+  height: 160%;
+  background-image: url("wumaru.jpeg");
+  background-repeat:repeat-y;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.trans{
+  position:relative;
+  left: 0;
   top: 0%;
-  width: 500%;
-  height: 200%;
-  /* background-image: url("wumaru.jpeg"); */
-  /* background-size: cover; */
+  width: 850%;
+  height: 300%;
+  background-size:cover;
+  background-repeat:no-repeat;
   transition: 0.6s;
   transition-timing-function:ease-in-out;
 }
 
-#first{
+img{
   position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#bg{
+  position: absolute;
+  left: 0;
+  top: 0%;
+  width: 850%;
+  height: 300%;
+  transition: 1s;
+  transition-timing-function:ease-in-out;
+}
+
+.container {
+    /* 滚动容器 */
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.polygon{
+  position: absolute;
+  width: 11.7%;
+  height: 33.3%;
+}
+
+#first{
   left:0%;
   top: 0%;
-  width: 20%;
-  height: 50%;
-  background-color: yellow;
 }
 
 #second{
-  position: relative;
-  left:20%;
-  top: 50%;
-  width: 20%;
-  height: 50%;
-  background-color: blue;
+  left:12%;
+  top: 35%;
 }
 
 #third{
-  position: relative;
-  left:60%;
-  top: 0%;
-  width: 20%;
-  height: 50%;
-  background-color: red;
+  left:23.8%;
+  top: 45%;
 }
 
 div.anim{
@@ -82,6 +113,12 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.swiper-questionnaire {
+  width: 100%;
+  height: 100%;
+}
+
 
 .swiper-slide {
   text-align: center;
