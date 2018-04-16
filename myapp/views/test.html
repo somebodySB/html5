@@ -207,8 +207,8 @@
       var acceleration = event.accelerationIncludingGravity;
       var curTime = new Date().getTime();
       var diffTime = curTime - last_update;
-
       if(diffTime>100){
+        // alert("aaa");
         last_update = curTime;
         x = acceleration.x;
         y = acceleration.y;
@@ -218,8 +218,8 @@
         if(speed>SHAKE_THRESHOLD){
           count++;
           if(count>10)
-          submitQuestion();
-          count=0;
+          {submitQuestion();
+          count=0;}
         }
         last_x = x;
         last_y = y;
