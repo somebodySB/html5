@@ -218,8 +218,10 @@
         if(speed>SHAKE_THRESHOLD){
           count++;
           if(count>10)
-          {submitQuestion();
-          count=0;}
+          {
+            submitQuestion();
+            count=0;
+          }
         }
         last_x = x;
         last_y = y;
