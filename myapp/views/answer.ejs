@@ -1,78 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" style="height:100%;overflow:hidden">
   <head>
     <meta charset="utf-8">
+    <meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport" />
     <title><%= title%></title>
+    <script src="/javascripts/html2canvas.min.js"></script>
+    <script src="/javascripts/html2canvas.js"></script>
+    <script src="/javascripts/canvas2image.js"></script>
+
   </head>
-  <body>
-    <div id = "test">
-      <%= locals.name %>的诊断报告:&nbsp;
+  <body style="height:100%;overflow:hidden;margin: 0;padding: 0;">
+    <div id = "test" style="overflow:hidden; position:absolute;left:100%;top:-100%;width:100%">
+      <%= locals.name %>的诊断报告:
+      </br>
       <img id = "Img1" style="width:50px; heigth:50px"></img>
       <img id = "Img2" style="width:50px; heigth:50px"></img>
       <img id = "Img3" style="width:50px; heigth:50px"></img>
     </div>
-
-
+    <canvas id="mCan" hidden = "hidden" style="width:100%; height: 100%"></canvas>
+    <div>
+      <button onclick="downImg()" id = "getImg">点击生成病历</button>
+    </div>
   </body>
 
   <script>
   var score = [];
-  <% var j=0 %>
-    <% for (var i = 0;i<locals.score.length;i++) {%>
-    score.push(<%= locals.score[i]%>);
-    <% } %>
 
-  var firstClassList = [];
-  var secondClassList = [];
-  var thirdClassList = [];
-  for(var i=0;i<score.length;i++){
-    switch (score[i]) {
-      case 100:
-        firstClassList.push(i+1);
-        break;
-      case 30:
-        secondClassList.push(i+1);
-        break;
-      case 10:
-        thirdClassList.push(i+1);
-        break;
-      default:
-
-    }
-  }
-  var sumPict = 0;
-  for(var i=0;i<firstClassList.length;i++){
-    if(sumPict>=3){
-      break;
-    }
-    var img = document.getElementById("Img"+(sumPict+1));
-    img.src = "/images/"+firstClassList[i]+".png";
-    sumPict++;
-  }
-  for(var i=0;i<secondClassList.length;i++){
-    if(sumPict>=3){
-      break;
-    }
-    if(Math.random()*100<=30){
-      var img = document.getElementById("Img"+(sumPict+1));
-      img.src = "/images/"+secondClassList[i]+".png";
-      sumPict++;
-    }
-  }
-  for(var i=0;i<thirdClassList.length;i++){
-    if(sumPict>=3){
-      break;
-    }
-    if(Math.random()*100<=10){
-      var img = document.getElementById("Img"+(sumPict+1));
-      img.src = "/images/"+thirdClassList[i]+".png";
-      sumPict++;
-    }
-
-  }
-  // while(true){
-  //   var img = document.createElement("image");
-  //   img.src = "./"+
-  // }
+    <% var j=0 %>
+      <% for (var i = 0;i<locals.score.length;i++) {%>
+      score.push(<%= locals.score[i]%>);
+      <% } %>
   </script>
+  <script src="/javascripts/showAnswer.js"></script>
 </html>
