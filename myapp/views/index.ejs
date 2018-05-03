@@ -52,7 +52,7 @@
   	},
   	onProgress : function(current, total){
   		console.log(current+'/'+total);
-  		var percent = current/total*100;
+  		var percent = current/total;
       var progress = document.getElementById("progress");
       progress.value = percent;
       if(current == total){
@@ -61,7 +61,7 @@
       }
   	},
   	onComplete : function(total){
-  		alert('加载完毕:'+total+'个资源');
+  		// alert('加载完毕:'+total+'个资源');
   	}
   });
 
