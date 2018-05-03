@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" onloadstart="loadResource()">
   <head>
     <meta charset="utf-8">
     <meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport" />
-    <link rel="prefetch" href="test"/>
+    <!-- <link rel="prefetch" href="test"/>
     <link rel="prefetch" href="/images/1.png"/>
     <link rel="prefetch" href="/images/2.png"/>
     <link rel="prefetch" href="/images/3.png"/>
@@ -12,31 +12,64 @@
     <link rel="prefetch" href="/images/6.png"/>
     <link rel="prefetch" href="/images/test_background.jpeg"/>
     <link rel="prefetch" href="/images/yyy.gif"/>
-    <link rel="prefetch" href="/images/bt_enter_clicked.png"/>
+    <link rel="prefetch" href="/images/bt_enter_clicked.png"/> -->
     <link rel="stylesheet" href="/stylesheets/home.css" />
     <title>空箱情报所</title>
   </head>
   <body>
+    <div id="loadingDiv">
+      <img src="/images/loading.png" style="width:50%;height:50%"></img>
+      <progress id="progress" value="0"></progress>
+    </div>
     <div id="homeImg">
       <img src="/images/home.png"></img>
     </div>
     <div id="enterButton">
-      <button ontouchstart = "change_img()" ontouchend = "getIntoMain()">
+      <button ontouchstart = "change_img()" ontouchend = "getIntoMain()" onclick="getIntoMain()">
         <img src="/images/bt_enter.png" id = "img_enter"></img>
       </button>
     </div>
 
   </body>
-
+  <script src="/javascripts/resLoader.js"></script>
   <script>
-  function loading(){
-    // var resources = [];
-    // var nb_loaded = 0;
-    // var image = new Image();
-    // image.onLoad = function(){
-    //
-    // }
-  }
+  var loader = new resLoader({
+  	resources : [
+  		"test",
+  		"/images/1.png",
+  		"/images/2.png",
+  		"/images/3.png",
+  		"/images/4.png",
+  		"/images/5.png",
+  		"/images/6.png",
+  		"/images/test_background.jpeg",
+  		"/images/yyy.gif",
+  		"/images/bt_enter_clicked.png",
+  		"/images/home.png"
+  	],
+  	onStart : function(total){
+  		console.log('start:'+total);
+  	},
+  	onProgress : function(current, total){
+  		console.log(current+'/'+total);
+  		var percent = current/total*100;
+      var progress = document.getElementById("progress");
+      progress.value = percent;
+      if(current == total){
+        var load_div = document.getElementById("loadingDiv");
+        load_div.style.display = "none";
+      }
+  	},
+  	onComplete : function(total){
+  		alert('加载完毕:'+total+'个资源');
+  	}
+  });
+
+  loader.start();
+
+  // function loading(){
+  //
+  // }
   function getIntoMain(){
 
     window.location.href='test';
@@ -46,4 +79,6 @@
     img.src = "/images/bt_enter_clicked.png";
   }
   </script>
+
+
 </html>

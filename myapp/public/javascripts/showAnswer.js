@@ -49,9 +49,13 @@
 
   }
   var myCanvas = document.getElementById("mCan");
-  html2canvas(document.querySelector("#test"),{canvas: myCanvas});/*.then(canvas => {
+  html2canvas(document.querySelector("#test")).then(canvas => {
     document.body.appendChild(canvas);
-  });*/
+    canvas.style.display = "none";
+    var myimg = Canvas2Image.convertToJPEG(canvas,canvas.width,canvas.height);
+    myimg.style.width = "100%";
+    document.body.appendChild(myimg);
+  });
   // Canvas2Image.saveAsJPEG(myCanvas,640,320);
   // document.body.appendChild(myimg);
   // var myCanvas = document.getElementsByTagName("canvas");
@@ -60,10 +64,10 @@
   //   img.src = "./"+
   // }
 
-  function downImg(){
-    var myimg = Canvas2Image.convertToJPEG(myCanvas,myCanvas.width,myCanvas.height);
-    document.body.appendChild(myimg);
-    myimg.style.width = "100%";
-    var button = document.getElementById("getImg");
-    button.style.display = "none";
-  }
+  // function downImg(){
+  //   var myimg = Canvas2Image.convertToJPEG(myCanvas,myCanvas.width,myCanvas.height);
+  //   document.body.appendChild(myimg);
+  //   myimg.style.width = "100%";
+  //   var button = document.getElementById("getImg");
+  //   button.style.display = "none";
+  // }
