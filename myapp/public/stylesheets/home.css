@@ -11,6 +11,11 @@
   width: 100%;
 }
 
+Img{
+  position: relative;
+  width: 100%;
+}
+
 #loadImg{
   position: relative;
   width: 43.73%;

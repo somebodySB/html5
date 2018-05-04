@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title><%= title%></title>
     <meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport" />
-    <link rel="stylesheet" href="/stylesheets/mySwiper.css" />
     <link rel="stylesheet" href="/stylesheets/swiper/dist/css/swiper.min.css" />
+    <link rel="stylesheet" href="/stylesheets/question.css" />
     <script src="/javascripts/polygonTrans.js"></script>
     <script src="/javascripts/moveMotion.js"></script>
   </head>
@@ -14,10 +14,15 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <form id = "1stQ">
-            <h1>1.如果有一整个空闲的周日，你会怎么安排？</h1>
-            <input type="radio" name="fisrt" value="100" onclick="nextQusetion()">A.没有任何安排，随性就好</input></br>
-            <input type="radio" name="fisrt" value="30" onclick="nextQusetion()">B.会规划几件简单的事情，完成之后就随性度过</input></br>
-            <input type="radio" name="fisrt" value="10" onclick="nextQusetion()">C.会认真安排规划，尽量不浪费时间</input>
+            <input type="radio" name="fisrt" value="100" onclick="nextQusetion()" id="q1s1" style="display:none;">
+              <label for="q1s1"><img src="/images/q1s1.png" class="q1s1"></img></label>
+            </input></br>
+            <input type="radio" name="fisrt" value="30" onclick="nextQusetion()" id="q1s2" style="display:none;">
+              <label for="q1s2"><img src="/images/q1s2.png" class="q1s2"></img></label>
+            </input></br>
+            <input type="radio" name="fisrt" value="10" onclick="nextQusetion()" id="q1s3" style="display:none;">
+              <label for="q1s3"><img src="/images/q1s3.png" class="q1s3"></img></label>
+            </input></br>
           </form>
         </div>
         <div class="swiper-slide">
@@ -98,5 +103,11 @@
 
   <script>
   testeeName = "<%= locals.name %>";
+  </script>
+
+  <script>
+  function clicked(){
+
+  }
   </script>
 </html>
